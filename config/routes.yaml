@@ -2,9 +2,5 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
-#lists:
-#  resource: App\Controller\ListController
-#  prefix: api
-
 api_login_check:
           path: /api/login_check
