@@ -24,10 +24,12 @@ services:
       - app-network
 
   frontend:
-    image: node:current-alpine
+    image: node:14.17.0
+    container_name: bleep_chat_front
     working_dir: /home/node/app
     volumes:
       - ./frontend:/home/node/app
+      - ./logs:/root/.npm/_logs/
     environment:
       NODE_ENV: development
     command: "npm run serve"

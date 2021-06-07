@@ -20,6 +20,9 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     zip \
     unzip \
+    build-essential \
+    checkinstall \
+    libssl-dev \
     npm
 
 # Clear cache
