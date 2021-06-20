@@ -1,0 +1,68 @@
+version: "3.7"
+services:
+  app :
+    build:
+      args:
+        user: www
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: bleep_chat_image
+    container_name: bleep_chat_app
+    restart: unless-stopped
+    working_dir: /var/www/app
+    volumes:
+      - ./:/var/www/app
+      - ./configdocker/php/local.ini:/etc/php/7.4/fpm/conf.d/local.ini
+      - ./configdocker/php/xdebug.ini:/etc/php/7.4/fpm/conf.d/xdebug.ini
+    environment:
+      APP_ENV: dev
+      APP_DEBUG: 1
+      XDEBUG_CONFIG: remote_host=docker.for.windows
+      PHP_IDE_CONFIG: serverName=localhost
+    networks:
+      - app-network
+
+  frontend:
+    image: node:14.17.0
+    container_name: bleep_chat_front
+    working_dir: /home/node/app
+    volumes:
+      - ./frontend:/home/node/app
+      - ./logs:/root/.npm/_logs/
+    environment:
+      NODE_ENV: development
+    command: "npm run serve"
+    ports:
+      - 8080:8080
+
+  webserver:
+    image: nginx:alpine
+    container_name: bleep_chat_webserver
+    restart: unless-stopped
+    volumes:
+      - ./:/var/www/app
+      - ./configdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "8000:80"
+    networks:
+      - app-network
+
+  db:
+    image: mysql:5.7
+    container_name: bleep_chat_mysql
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./db_data:/var/lib/db_data/
+    environment:
+      MYSQL_DATABASE: 'bleepDb'
+      MYSQL_USER: 'bleep_adm'
+      MYSQL_PASSWORD: 'ADMADM'
+      MYSQL_ROOT_PASSWORD: '@DMSERVER'
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
