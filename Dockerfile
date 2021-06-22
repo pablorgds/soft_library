@@ -22,20 +22,12 @@ RUN apt-get update && apt-get install -y -qq \
     zip \
     unzip \
     locales
-#    \
-#    nodejs \
-#    npm
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
-
-# setup npm
-#RUN npm install -g npm@latest
-#RUN npm cache clean -f
-#RUN npm install -g n && n 16
 
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
