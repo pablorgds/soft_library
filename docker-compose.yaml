@@ -32,7 +32,7 @@ services:
       - ./logs:/root/.npm/_logs/
     environment:
       NODE_ENV: development
-#    command: sh -c "npm install && npm run serve"
+    command: sh -c "npm install && npm run serve"
 #      - "npm run serve"
     ports:
       - 8080:8080
