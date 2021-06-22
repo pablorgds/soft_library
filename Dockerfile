@@ -12,7 +12,8 @@ RUN pecl install xdebug-3.0.3    \
     && docker-php-ext-enable xdebug
 
 # Install system dependencies
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y -qq \
+    build-essential \
     git \
     curl \
     libpng-dev \
@@ -20,16 +21,21 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     zip \
     unzip \
-    build-essential \
-    checkinstall \
-    libssl-dev \
-    npm
+    locales
+#    \
+#    nodejs \
+#    npm
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
+
+# setup npm
+#RUN npm install -g npm@latest
+#RUN npm cache clean -f
+#RUN npm install -g n && n 16
 
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
