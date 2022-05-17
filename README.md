@@ -23,5 +23,10 @@ docker compose stop
 - URL Back http://localhost:8000
 - URL front http://localhost
 
+##### to run commands inside the container without opening the container
+```
+docker compose exec app composer install (composer to the back laravel/php)
+docker compose exec front npm install (npm to the front angular)
+```
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
