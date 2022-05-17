@@ -4,8 +4,8 @@ WORKDIR "/var/www/app/front"
 # Copy existing application directory contents
 COPY ../../front /var/www/app/front
 
-RUN npm i npm@latest -g
 RUN npm install
+RUN npm i npm@latest -g
 
 #production
 #RUN npm ci --only=productio

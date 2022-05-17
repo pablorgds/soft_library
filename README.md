@@ -1,6 +1,6 @@
 # Project setup
 
-## First time
+## The first time
 Follow this instruction to run the project fot the first time
 ##### 1 - Go to front
 ```
@@ -19,6 +19,9 @@ docker compose up -d
 //to stop all
 docker compose stop
 ```
+
+- URL Back http://localhost:8000
+- URL front http://localhost
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
