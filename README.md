@@ -1,32 +1,23 @@
-# app
+# Project setup
 
-### Project setup
-- Follow this instruction to run the project fot the first time
+## First time
+Follow this instruction to run the project fot the first time
+##### 1 - Go to front
 ```
-docker-compose up -d
-```
-- The front c
-
-# front
-
-### Frontend setup
-```
+cd bleepchat/front
 npm install
 ```
 
-### Compiles and hot-reloads for development
+##### 2 - Now everything is ready to build the enviroment with Docker
 ```
-npm run serve
-```
+//just the first time (build all images) 
+docker compose up -d --build
 
-### Compiles and minifies for production
-```
-npm run build
-```
+//not building
+docker compose up -d
 
-### Lints and fixes files
-```
-npm run lint
+//to stop all
+docker compose stop
 ```
 
 ### Customize configuration

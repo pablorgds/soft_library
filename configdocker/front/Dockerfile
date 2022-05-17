@@ -4,9 +4,7 @@ WORKDIR "/var/www/app/front"
 # Copy existing application directory contents
 COPY ../../front /var/www/app/front
 
-RUN npm install -g @angular/cli
 RUN npm i npm@latest -g
-
 RUN npm install
 
 #production
