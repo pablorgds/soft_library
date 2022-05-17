@@ -6,6 +6,7 @@ COPY ../../front /var/www/app/front
 
 RUN npm install
 RUN npm i npm@latest -g
+RUN npm install -g @angular/cli
 
 #production
 #RUN npm ci --only=productio
