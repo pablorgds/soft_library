@@ -7,8 +7,8 @@ services:
         uid: 1000
       context: ./
       dockerfile: configdocker/back/Dockerfile
-    image: bc_app_php
-    container_name: bc_app
+    image: app_php
+    container_name: app
     restart: unless-stopped
     working_dir: /var/www/app
     ports:
@@ -28,8 +28,8 @@ services:
     build:
       context: ./
       dockerfile: configdocker/front/Dockerfile
-    image: bc_front_node
-    container_name: bc_front
+    image: front_node
+    container_name: front
     restart: unless-stopped
     working_dir: /var/www/app/front
     volumes:
@@ -44,7 +44,7 @@ services:
 
   webserver:
     image: nginx:alpine
-    container_name: bc_webserver
+    container_name: webserver
     restart: unless-stopped
     volumes:
       - ./back:/var/www/app
@@ -57,15 +57,15 @@ services:
 
   db:
     image: mysql:5.7
-    container_name: bc_mysql
+    container_name: mysql
     restart: unless-stopped
     volumes:
       - ./db_data:/var/lib/db_data/
     ports:
       - "3306:3306"
     environment:
-      MYSQL_DATABASE: 'bcDb'
-      MYSQL_USER: 'bc_adm'
+      MYSQL_DATABASE: 'database'
+      MYSQL_USER: 'user'
       MYSQL_PASSWORD: 'ADMADM'
       MYSQL_ROOT_PASSWORD: '@DMSERVER'
     networks:
