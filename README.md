@@ -4,7 +4,7 @@
 Follow this instruction to run the project fot the first time
 ##### 1 - Go to front
 ```
-cd cadastro_usuarios/front
+cd  library_soft/front
 npm install
 ```
 
