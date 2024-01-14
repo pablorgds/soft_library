@@ -1,0 +1,72 @@
+/*!
+* Version: 1.2.0
+* Template: Hope-Ui - Responsive Bootstrap 5 Admin Dashboard Template
+* Author: iqonic.design
+* Design and Developed by: iqonic.design
+* NOTE: This file contains the styling for Template.
+*
+*/
+
+@import "src/assets/assets/scss/hope-ui-design-system/helper/fonts";
+
+
+// Configuration
+@import "src/assets/assets/scss/bootstrap/functions";
+
+// Variables
+@import "src/assets/assets/scss/hope-ui-design-system/variable";
+@import "src/assets/assets/scss/hope-ui-design-system/variables/index";
+@import "src/assets/assets/scss/bootstrap/variables";
+
+@import "src/assets/assets/scss/bootstrap/mixins";
+@import "src/assets/assets/scss/bootstrap/utilities";
+
+// Custom Mixin And Helper
+@import "src/assets/assets/scss/hope-ui-design-system/helper/functions";
+@import "src/assets/assets/scss/hope-ui-design-system/helper/mixins";
+@import "src/assets/assets/scss/hope-ui-design-system/helper/reboot";
+
+// Layout & components
+@import "src/assets/assets/scss/hope-ui-design-system/helper/root";
+@import "src/assets/assets/scss/bootstrap/root";
+@import "src/assets/assets/scss/bootstrap/reboot";
+@import "src/assets/assets/scss/bootstrap/type";
+@import "src/assets/assets/scss/bootstrap/images";
+@import "src/assets/assets/scss/bootstrap/containers";
+@import "src/assets/assets/scss/bootstrap/grid";
+@import "src/assets/assets/scss/bootstrap/tables";
+@import "src/assets/assets/scss/bootstrap/forms";
+@import "src/assets/assets/scss/bootstrap/buttons";
+@import "src/assets/assets/scss/bootstrap/transitions";
+@import "src/assets/assets/scss/bootstrap/dropdown";
+@import "src/assets/assets/scss/bootstrap/button-group";
+@import "src/assets/assets/scss/bootstrap/nav";
+@import "src/assets/assets/scss/bootstrap/navbar";
+@import "src/assets/assets/scss/bootstrap/card";
+@import "src/assets/assets/scss/bootstrap/accordion";
+@import "src/assets/assets/scss/bootstrap/breadcrumb";
+@import "src/assets/assets/scss/bootstrap/pagination";
+@import "src/assets/assets/scss/bootstrap/badge";
+@import "src/assets/assets/scss/bootstrap/alert";
+@import "src/assets/assets/scss/bootstrap/progress";
+@import "src/assets/assets/scss/bootstrap/list-group";
+@import "src/assets/assets/scss/bootstrap/close";
+@import "src/assets/assets/scss/bootstrap/toasts";
+@import "src/assets/assets/scss/bootstrap/modal";
+@import "src/assets/assets/scss/bootstrap/tooltip";
+@import "src/assets/assets/scss/bootstrap/popover";
+@import "src/assets/assets/scss/bootstrap/carousel";
+@import "src/assets/assets/scss/bootstrap/spinners";
+@import "src/assets/assets/scss/bootstrap/offcanvas";
+
+// Helpers
+@import "src/assets/assets/scss/bootstrap/helpers";
+
+// Utilities
+@import "src/assets/assets/scss/bootstrap/utilities/api";
+
+// Extra Components and Utilities and plugins
+@import "src/assets/assets/scss/hope-ui-design-system/components/components";
+@import "src/assets/assets/scss/hope-ui-design-system/layout-style/index";
+@import "src/assets/assets/scss/hope-ui-design-system/helper/utilities";
+@import "src/assets/assets/scss/hope-ui-design-system/plugins/plugins";
