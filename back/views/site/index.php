@@ -15,7 +15,18 @@ $this->title = 'My Yii Application';
     </div>
 
     <div class="body-content">
-
+        <div class="body-content">
+            <h2>Dados do Clima</h2>
+            <?php
+            if ($clima) {
+                echo Html::tag('p', "Temperatura: {$clima['temp']}°C");
+                echo Html::tag('p', "Condição: {$clima['condition_slug']}");
+                // Adicione mais informações conforme necessário
+            } else {
+                echo Html::tag('p', 'Erro ao obter dados do clima.');
+            }
+            ?>
+        </div>
         <div class="row">
             <div class="col-lg-4 mb-3">
                 <h2>Heading</h2>

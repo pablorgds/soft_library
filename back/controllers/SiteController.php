@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\services\WeatherService;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -54,6 +55,13 @@ class SiteController extends Controller
         ];
     }
 
+    private $weatherService;
+
+    public function __construct($id, $module, WeatherService $weatherService, $config = [])
+    {
+        parent::__construct($id, $module, $config);
+        $this->weatherService = $weatherService;
+    }
     /**
      * Displays homepage.
      *
@@ -61,10 +69,13 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $model = new LoginForm();
-        return $this->render('login', [
-            'model' => $model,
-        ]);
+        // Obter dados do clima
+        $cidade = 'SuaCidade';
+        $estado = 'SeuEstado';
+        $clima = $this->weatherService->getWeather($cidade, $estado);
+
+        // Agora, você pode passar os dados do clima para a sua visão ou fazer o que for necessário
+        return $this->render('index', ['clima' => $clima]);
     }
 
     /**
@@ -74,19 +85,12 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
         $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        }
-
         $model->password = '';
-        return $this->render('login', [
-            'model' => $model,
-        ]);
+        if ($model->login()) {
+            $returnUrl = Yii::$app->user->getReturnUrl(['http://localhost']);
+            return $this->redirect($returnUrl);
+        }
     }
 
     /**
